@@ -1,0 +1,85 @@
+<section>
+    <div class="order_bg">
+        <div class="order_header">
+            <h2>Checkout</h2>
+        </div>
+        <div class="payment_options">
+            <div class="payment_tabs">
+                <ul>
+                    <li [ngClass]="[tabState == 'debit_card' ? 'first active tab' : 'first tab']" (click)="changeTab('debit_card')">Debit Card</li>
+                    <li [ngClass]="[tabState == 'credit_card' ? 'active tab' : 'tab']" (click)="changeTab('credit_card')">Credit Card</li>
+                    <li [ngClass]="[tabState == 'upi' ? 'active tab' : 'tab']" (click)="changeTab('upi')">UPI</li>
+                    <li [ngClass]="[tabState == 'cod' ? 'active tab' : 'tab']" (click)="changeTab('cod')">Cash On Delivery</li>
+                </ul>
+            </div>
+            <div class="payment_mode">
+                <div [ngClass]="[tabState]" *ngIf = "tabState === 'debit_card'">
+                    <h2>Enter Debit Card details</h2>
+                    <div class="form-container">
+                        <div class="field-container">
+                            <label for="name">Name</label>
+                            <input id="name" maxlength="20" type="text">
+                        </div>
+                        <div class="field-container">
+                            <label for="cardnumber">Card Number</label>
+                            <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                        <div class="field-container">
+                            <label for="expirationdate">Expiration (mm/yy)</label>
+                            <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                        <div class="field-container">
+                            <label for="securitycode">Security Code</label>
+                            <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                        <div class="field-container">
+                            <button class="debit_button" (click)="debitCardSubmit()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div [ngClass]="[tabState]" *ngIf = "tabState === 'credit_card'">
+                    <h2>Enter Credit Card details</h2>
+                    <div class="form-container">
+                        <div class="field-container">
+                            <label for="name">Name</label>
+                            <input id="name" maxlength="20" type="text">
+                        </div>
+                        <div class="field-container">
+                            <label for="cardnumber">Card Number</label>
+                            <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                        <div class="field-container">
+                            <label for="expirationdate">Expiration (mm/yy)</label>
+                            <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                        <div class="field-container">
+                            <label for="securitycode">Security Code</label>
+                            <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                        <div class="field-container">
+                            <button class="credit_button" (click)="creditCardSubmit()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div [ngClass]="[tabState]" *ngIf = "tabState === 'upi'">
+                    <h2>Enter UPI details</h2>
+                    <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem</h4>
+                    <div class="upi_box field-container">
+                        <label for="upi_id">Enter your UPI ID</label>
+                        <input id="upi_id" maxlength="20" type="text">
+                    </div>
+                    <div class="field-container">
+                        <button class="upi_button" (click)="upiSubmit()">Proceed</button>
+                    </div>
+                </div>
+                <div [ngClass]="[tabState]" *ngIf = "tabState === 'cod'">
+                    <h2>Cash On Delivery</h2>
+                    <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem</h4>
+                    <div class="field-container">
+                        <button class="cod_button" (click)="codSubmit()">Proceed</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
